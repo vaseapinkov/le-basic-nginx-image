@@ -1,18 +1,14 @@
 # le-basic-nginx-image
 
-Basic Docker image to run nginx servers. Also a boilerplate for laravel server
+Basic docker configuration tu run isolated laravel projects with mysql and composer as separate services
 
-To properly run image type in terminal:
+Run:
 
-Enter project folder:
+1. `docker-compose bulid`
+2. `docker-compose up nginx`
 
-`cd [path-to-project]`
+To use composer run:
 
-Build image and delete cache
-`docker build --no-cache -t [image-name] .`
+`docker-compose run --rm coposer [composer-comand]`
 
-Run image and map port 80 to container, mount `src` folder to container server public directory
-
-`docker run --rm -p 80:80 -v [path-to-project]/src:/var/www/html/public [image-name]`
-
-While running container all changes in the src directory will be reflected on web server. 
+This command will run composer image execute command and after remove it 
